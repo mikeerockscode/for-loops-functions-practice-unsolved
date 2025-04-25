@@ -9,7 +9,75 @@
 // Phil's Account Object
 // ]
 
-export function getAllAccountsWithSumsOfDepositsLess2000(array) {}
+// import { bankAccounts } from "../data/data.js";
+
+// export function getAllAccountsWithSumsOfDepositsLess2000(array) {
+//   let result = [];
+
+//   for (let account of array) {
+//     if (account.deposits && account.deposits.length < 2000) {
+//       for (let deposit of account.deposits) {
+//         if (deposit < 2000) {
+//           result.push(deposit); // Add deposits greater than 100
+//         }
+//       }
+//     }
+//   }
+
+//   return result; // Return the array of deposits greater than 100
+// }
+
+// import { bankAccounts } from "../data/data.js";
+
+// export function getAllAccountsWithSumsOfDepositsLess2000(array) {
+//   let result = [];
+
+//   for (let account of array) {
+//     if (account.deposits && account.deposits.length > 0) {
+//       // Calculate the sum of all deposits for the account
+//       let totalDeposits = account.deposits.reduce(
+//         (acc, deposit) => acc + deposit,
+//         0
+//       );
+
+//       // Add account to the result if the total is less than 2000
+//       if (totalDeposits < 2000) {
+//         result.push(account); // Push the entire account object (or modify if needed)
+//       }
+//     }
+//   }
+
+//   return result; // Return the array of accounts with total deposits < 2000
+// }
+
+// console.log(getAllAccountsWithSumsOfDepositsLess2000(bankAccounts));
+
+import { bankAccounts } from "../data/data.js";
+
+export function getAllAccountsWithSumsOfDepositsLess2000(array) {
+  let result = [];
+
+  for (let account of array) {
+    if (!account.deposits || account.deposits.length === 0) {
+      // No deposits at all
+      result.push(account);
+    } else {
+      // Calculate the sum of deposits
+      let totalDeposits = account.deposits.reduce(
+        (acc, deposit) => acc + deposit,
+        0
+      );
+      if (totalDeposits < 2000) {
+        result.push(account);
+      }
+    }
+  }
+
+  return result;
+}
+
+// Example usage
+console.log(getAllAccountsWithSumsOfDepositsLess2000(bankAccounts));
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-13"
