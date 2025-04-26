@@ -5,16 +5,19 @@
 
 export function concatArrays(arr1, arr2) {
   // Your code goes here...
-  const arr1 = ["d", "r", "a"];
-  const arr2 = ["f", "y"];
-
+  let combined = [];
+  // Loop through arr1 and push elements into combined
   for (let i = 0; i < arr1.length; i++) {
     combined.push(arr1[i]);
   }
+  // Loop through arr2 and push elements into combined
   for (let j = 0; j < arr2.length; j++) {
     combined.push(arr2[j]);
   }
+  return combined;
 }
+const arr1 = ["d", "r", "a"];
+const arr2 = ["f", "y"];
 
 console.log(concatArrays(arr1, arr2));
 
