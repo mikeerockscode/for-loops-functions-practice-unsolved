@@ -19,14 +19,22 @@
 //   return array.includes(value); // Directly check if the array contains the value
 // }
 
+// export function doesArrayInclude(array, value) {
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i] === value) {
+//       // Check if the current element matches the value
+//       return true;
+//     }
+//   }
+//   return false; // Return false if no match is found
+// }
 export function doesArrayInclude(array, value) {
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; array[i] !== undefined; i++) {
     if (array[i] === value) {
-      // Check if the current element matches the value
       return true;
     }
   }
-  return false; // Return false if no match is found
+  return false;
 }
 
 // === TEST YOURSELF ===

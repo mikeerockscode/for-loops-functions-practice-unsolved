@@ -14,20 +14,41 @@
 
 // console.log(array);
 
+// export function joinToString(array, separator) {
+//   let result = ""; // Start with an empty string
+
+//   for (let i = 0; i < array.length; i++) {
+//     result += array[i]; // Add each element to the result string
+
+//     // Add separator **only if** it's not the last element
+//     if (i < array.length - 1) {
+//       result += separator;
+//     }
+//   }
+
+//   return result;
+// }
+// const array = ["a", "b", "c"];
+// const separator = "-";
+
+// console.log(joinToString(array, separator));
+
 export function joinToString(array, separator) {
-  let result = ""; // Start with an empty string
+  let result = "";
+  let i = 0;
 
-  for (let i = 0; i < array.length; i++) {
-    result += array[i]; // Add each element to the result string
+  for (; array[i] !== undefined; i++) {
+    result += array[i];
 
-    // Add separator **only if** it's not the last element
-    if (i < array.length - 1) {
+    if (array[i + 1] !== undefined) {
+      // Check manually if it's not the last element
       result += separator;
     }
   }
 
   return result;
 }
+
 const array = ["a", "b", "c"];
 const separator = "-";
 

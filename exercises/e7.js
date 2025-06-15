@@ -7,21 +7,29 @@ import { bankAccounts } from "../data/data";
 
 export function getClientWithLeastPositiveBalance(array) {
   // Your code goes here...
-  let result = [];
+
+  let result = []; // Store the account with the least positive balance
   let minPositiveBalance = Number.MAX_VALUE;
 
   for (let account of array) {
     if (account.balance > 0 && account.balance < minPositiveBalance) {
-      result = [account]; // Overwrite result with the client having the least positive balance
-      minPositiveBalance = account.balance; // Update minimum positive balance
+      result = []; // Reset result to store only the new lowest balance account
+      result.push(account); // Push the account with the least positive balance
+      minPositiveBalance = account.balance; // Update minimum balance tracker
     }
   }
 
-  if (result.length === 0) {
-    return []; // Return an empty array if no clients with positive balance are found
+  // Check manually if result has any items instead of using .length
+  let hasClient = false;
+  for (let _ of result) {
+    hasClient = true;
   }
 
-  return result;
+  if (!hasClient) {
+    return []; // Return empty array if no eligible account is found
+  }
+
+  return result; // Return an array with the account having the least positive balance
 }
 
 console.log(getClientWithLeastPositiveBalance(bankAccounts));

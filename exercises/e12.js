@@ -20,16 +20,64 @@
 
 // console.log(getAllDepositsGreaterThanOneHundred(bankAccounts));
 
+// import { bankAccounts } from "../data/data.js";
+
+// export function getAllDepositsGreaterThanOneHundred(array) {
+//   let result = [];
+
+//   for (let account of array) {
+//     if (account.deposits && account.deposits.length > 0) {
+//       for (let deposit of account.deposits) {
+//         if (deposit > 100) {
+//           result.push(deposit); // Add deposits greater than 100
+//         }
+//       }
+//     }
+//   }
+
+//   return result; // Return the array of deposits greater than 100
+// }
+
+// console.log(getAllDepositsGreaterThanOneHundred(bankAccounts));
+// import { bankAccounts } from "../data/data.js";
+
+// export function getAllDepositsGreaterThanOneHundred(array) {
+//   let result = []; // Array to store deposits greater than 100
+
+//   for (let account of array) {
+//     let hasDeposits = false;
+
+//     // Manually checking if deposits exist without using .length
+//     for (let _ of account.deposits || []) {
+//       hasDeposits = true;
+//       break; // If we find an element, break immediately
+//     }
+
+//     if (hasDeposits) {
+//       for (let deposit of account.deposits) {
+//         if (deposit > 100) {
+//           result.push(deposit); // Push deposits greater than 100
+//         }
+//       }
+//     }
+//   }
+
+//   return result; // Return the array of deposits greater than 100
+// }
+
+// console.log(getAllDepositsGreaterThanOneHundred(bankAccounts));
+
 import { bankAccounts } from "../data/data.js";
 
 export function getAllDepositsGreaterThanOneHundred(array) {
-  let result = [];
+  let result = []; // Stores deposits greater than 100
 
   for (let account of array) {
-    if (account.deposits && account.deposits.length > 0) {
+    if (account.deposits) {
+      // Ensure deposits exist
       for (let deposit of account.deposits) {
         if (deposit > 100) {
-          result.push(deposit); // Add deposits greater than 100
+          result.push(deposit); // Push deposits greater than 100 individually
         }
       }
     }

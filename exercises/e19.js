@@ -3,16 +3,37 @@
 // reverseArray([1, 2, 3 ,4]) => [4, 3, 2, 1]
 // NOTE: You can NOT use the array.reverse() method in your code
 
-export function reverseArray(array) {
-  // Your code goes here...
-  let reversed = [];
+// export function reverseArray(array) {
+//   // Your code goes here...
+//   let reversed = [];
 
-  for (let i = array.length - 1; i >= 0; i--) {
-    reversed.push(array[i]); // Push elements from last to first
+//   for (let i = array.length - 1; i >= 0; i--) {
+//     reversed.push(array[i]); // Push elements from last to first
+//   }
+
+//   return reversed;
+// }
+// const array = [1, 2, 3, 4];
+
+// console.log(reverseArray(array));
+
+export function reverseArray(array) {
+  let reversed = [];
+  let count = 0;
+
+  // Find the last index manually using a `for` loop
+  for (let i = 0; array[i] !== undefined; i++) {
+    count = i;
+  }
+
+  // Use another `for` loop to iterate backward
+  for (let j = count; j >= 0; j--) {
+    reversed.push(array[j]);
   }
 
   return reversed;
 }
+
 const array = [1, 2, 3, 4];
 
 console.log(reverseArray(array));

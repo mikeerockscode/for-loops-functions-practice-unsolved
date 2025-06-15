@@ -7,14 +7,38 @@
  * Example: getAverage([22, 45, 4, 65]) => 34
  * */
 
+// export function getAverage(array) {
+//   // Your code goes here...
+//   const total = array.reduce((sum, num) => sum + num, 0);
+//   const average = total / array.length;
+//   return average;
+// }
+
+// console.log(getAverage([22, 45, 4, 65]));
+
 export function getAverage(array) {
-  // Your code goes here...
-  const total = array.reduce((sum, num) => sum + num, 0);
-  const average = total / array.length;
+  let sumArray = [];
+  let sum = 0;
+  let count = 0;
+
+  for (let num of array) {
+    sum += num;
+    sumArray.push(sum); // Using .push() to store cumulative sum
+    count += 1; // Manually tracking the number of elements
+  }
+
+  // Using only .push()—no other array methods
+  let lastIndex = 0;
+  for (let _ of sumArray) {
+    lastIndex += 1; // Manually determining the last index
+  }
+
+  let average = sumArray[lastIndex - 1] / count; // Computing the average
+
   return average;
 }
 
-console.log(getAverage([22, 45, 4, 65]));
+console.log(getAverage([22, 45, 4, 65])); // Output: 34
 
 /**
  * PART 2
@@ -24,20 +48,35 @@ console.log(getAverage([22, 45, 4, 65]));
  * */
 
 export function getStringSum(str) {
-  // Your code goes here...
-  const total = [...str].reduce((sum, char) => {
-    if (!isNaN(char) && char !== "") {
-      return sum + Number(char);
-    }
-    return sum;
-  }, 0);
+  //   // Your code goes here...
 
-  return total;
+  let sumArray = [];
+  let sum = 0;
+  let count = 0; // Manually tracking the count
+
+  for (let char of str) {
+    if (!isNaN(char) && char !== "") {
+      sum += Number(char);
+      sumArray.push(sum); // Using .push() to store cumulative sum
+      count += 1; // Manually incrementing count
+    }
+  }
+
+  if (count === 0) {
+    return 0;
+  }
+
+  // Determine last value in sumArray without using .length
+  let lastIndex = 0;
+  for (let _ of sumArray) {
+    lastIndex += 1; // Counting the number of elements manually
+  }
+
+  return sumArray[lastIndex - 1]; // Get the last sum without .length
 }
 
-console.log(getStringSum("GH2U87A"));
-console.log(getStringSum("GHIUJUHSG"));
-
+console.log(getStringSum("GH2U87A")); // Output: 17
+console.log(getStringSum("GHIUJUHSG")); // Output: 0
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-3"
 // If the test has all tests passed, switch to the next exercise file

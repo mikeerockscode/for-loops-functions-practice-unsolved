@@ -3,13 +3,17 @@
 // Array example: bankAccounts in /data/data.js
 // getAllClientNames(bankAccounts) => ['Kevin', 'Spenser']
 
+import { bankAccounts } from "../data/data";
 export function getAllClientNames(array) {
   // Your code goes here...
-  return bankAccounts.clients;
+
+  let clientsNames = [];
+
+  for (let account of array) {
+    clientsNames.push(account.name);
+  }
+  return clientsNames;
 }
-const bankAccounts = {
-  clients: ["Susan", "Morgan", "Joshua", "Candy", "Phil"],
-};
 
 console.log(getAllClientNames(bankAccounts));
 
